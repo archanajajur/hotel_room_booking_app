@@ -1,7 +1,7 @@
 class Api::V1::RoomsController < Api::V1::ApiController
 
     def index
-        @rooms = Location.find(:location_id).rooms
+        @rooms = Room.all
         render json: @rooms
     end
 
@@ -43,5 +43,4 @@ class Api::V1::RoomsController < Api::V1::ApiController
       def room_params
         params.require(:room).permit(:location_id, :name, :description)
       end
-  
   end
